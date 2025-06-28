@@ -153,60 +153,13 @@
 
       <!-- Show Full Analysis Button -->
       <div style="text-align: center; margin: 20px 0">
-        <button class="export-btn" onclick="showResultContainer()">
+        <!-- <button class="export-btn" onclick="showResultContainer()">
           Show Full Analysis
-        </button>
+        </button> -->
       </div>
     </div>
 
 
-    <div class="result-container" id="resultContainer" style="display: none">
-
-      <div class="repos-section">
-        <h3 class="section-title">📁 Public Repositories</h3>
-        <div id="repositoriesList"></div>
-      </div>
-
-      <div class="insights-section">
-        <h3 class="section-title">📊 Developer Insights</h3>
-
-        <div class="chart-container">
-          <h4>Language Usage</h4>
-          <canvas id="languageChart" width="400" height="200"></canvas>
-        </div>
-
-        <div class="chart-container">
-          <h4>Contribution Activity</h4>
-          <div class="heatmap" id="contributionHeatmap"></div>
-        </div>
-
-        <div class="chart-container">
-          <h4>Repository Metrics</h4>
-          <canvas id="metricsChart" width="400" height="200"></canvas>
-        </div>
-      </div>
-
-      <div class="export-section">
-        <h3 class="section-title">💾 Export Data</h3>
-        <div class="export-buttons">
-          <button class="export-btn" onclick="exportData('json')">
-            Export JSON
-          </button>
-          <button class="export-btn" onclick="exportData('csv')">
-            Export CSV
-          </button>
-          <button class="export-btn" onclick="exportData('excel')">
-            Export Excel
-          </button>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 20px">
-        <button class="back-button" onclick="hideResultContainer()">
-          Back to Profile
-        </button>
-      </div>
-    </div>
 
     <script src="index.js"></script>
   </body>
