@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=D5XsEXNbhkMI&format=png&color=000000" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/?size=100&id=D5XsEXNbhkMI&format=png&color=000000"
+      type="image/x-icon"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Github-Extractor</title>
@@ -85,8 +89,7 @@
       </div>
     </div>
 
-    <!-- New Profile Container -->
-
+    <!-- Profile Container -->
     <div class="profile-container" id="profileContainer" style="display: none">
       <div class="profile-header-section">
         <button class="back-button" onclick="showMainContainer()">
@@ -154,13 +157,96 @@
 
       <!-- Show Full Analysis Button -->
       <div style="text-align: center; margin: 20px 0">
-        <!-- <button class="export-btn" onclick="showResultContainer()">
-          Show Full Analysis
-        </button> -->
+        <button class="analysis-btn" id="showAnalysisBtn">
+          Show Repositories
+        </button>
       </div>
     </div>
+    
+    <!-- Deep Analysis Container -->
+    <div class="deep-analysis-container" id="deepAnalysisContainer" style="display: none">
+      <div class="deep-analysis-header">
+        <button class="back-button" id="backFromAnalysisBtn">
+          <svg fill="currentColor" viewBox="0 0 20 20" width="20" height="20">
+            <path
+              d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+            />
+          </svg>
+          Back
+        </button>
+        <h1 class="deep-analysis-title">GitHub Repositories</h1>
+      </div>
+
+      <div class="analysis-section">
+        <h2 class="section-title">
+          <svg fill="currentColor" viewBox="0 0 20 20" width="20" height="20">
+            <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
+          </svg>
+          Profile
+        </h2>
+        <div class="profile-header">
+          <img
+            id="deepAnalysisAvatar"
+            class="avatar"
+            src=""
+            alt="avatar"
+          />
+          <div class="profile-info">
+            <h3 id="deepAnalysisName"></h3>
+            <div id="deepAnalysisUsername" class="username"></div>
+          </div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat-card">
+            <div id="deepAnalysisRepos" class="stat-number"></div>
+            <div class="stat-label">Repositories</div>
+          </div>
+          <div class="stat-card">
+            <div id="deepAnalysisFollowers" class="stat-number"></div>
+            <div class="stat-label">Followers</div>
+          </div>
+          <div class="stat-card">
+            <div id="deepAnalysisFollowing" class="stat-number"></div>
+            <div class="stat-label">Following</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="analysis-section">
+        <h2 class="section-title">
+          <svg fill="currentColor" viewBox="0 0 20 20" width="20" height="20">
+            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+          </svg>
+          Repositories
+        </h2>
+        <div id="deepAnalysisRepoList">
+          <!-- Sample repository items -->
+          <div class="repo-item">
+            <div class="repo-header">
+              <a href="#" class="repo-name">Sample Repository</a>
+              <div class="repo-stats">
+                <span>⭐ 45</span>
+                <span>🍴 12</span>
+              </div>
+            </div>
+            <div class="repo-description">
+              A sample repository description that shows how the layout works.
+            </div>
+            <div class="repo-tags">
+              <span class="tag language-tag">JavaScript</span>
+              <span class="tag">React</span>
+              <span class="tag">CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
+      <div class="export-section">
+        <button class="analysis-btn">Export as PDF</button>
+        <button class="analysis-btn">Download JSON</button>
+      </div>
+    </div>
 
     <script src="index.js"></script>
   </body>
