@@ -199,7 +199,7 @@
         <div class="profile-stats">
           <div class="stat-card">
             <div id="deepAnalysisRepos" class="stat-number"></div>
-            <div class="stat-label">Repositories</div>
+            <div class="stat-label" id="repositories-label">Repositories</div>
           </div>
           <div class="stat-card">
             <div id="deepAnalysisFollowers" class="stat-number"></div>
@@ -223,14 +223,14 @@
           <!-- Sample repository items -->
           <div class="repo-item">
             <div class="repo-header">
-              <a href="#" class="repo-name">Sample Repository</a>
+              <a href="#" class="repo-name"></a>
               <div class="repo-stats">
-                <span>⭐ 45</span>
-                <span>🍴 12</span>
+                <span></span>
+                <span></span>
               </div>
             </div>
             <div class="repo-description">
-              A sample repository description that shows how the layout works.
+             
             </div>
             <div class="repo-tags">
               <span class="tag language-tag">JavaScript</span>
@@ -243,11 +243,10 @@
 
 
       <div class="export-section">
-        <button class="analysis-btn">Export as PDF</button>
-        <button class="analysis-btn">Download JSON</button>
+        <button class="analysis1-btn">Export as PDF</button>
       </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

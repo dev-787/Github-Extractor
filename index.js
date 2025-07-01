@@ -208,3 +208,83 @@ function fetchLatestRepos(username) {
     });
 }
 
+document.querySelector(".analysis1-btn").addEventListener("click", exportUserProfileAsPDF);
+
+function exportUserProfileAsPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // 1️⃣ Gather all the data you want from the DOM
+  const name = document.getElementById("deepAnalysisName").textContent.trim();
+  const username = document.getElementById("deepAnalysisUsername").textContent.trim();
+  const repos = document.getElementById("deepAnalysisRepos").textContent.trim();
+  const followers = document.getElementById("deepAnalysisFollowers").textContent.trim();
+  const following = document.getElementById("deepAnalysisFollowing").textContent.trim();
+
+  // 2️⃣ You can add even more fields if you want
+  // For example bio, location, company if you store them
+  const bio = document.getElementById("profileBio")?.textContent?.trim() || "";
+  const location = document.getElementById("location")?.textContent?.trim() || "";
+  const company = document.getElementById("company")?.textContent?.trim() || "";
+
+  // 3️⃣ Start writing to PDF
+  let y = 20;
+  doc.setFontSize(18);
+  doc.text("GitHub User Profile", 20, y);
+
+  y += 10;
+  doc.setFontSize(12);
+  doc.text(`Name: ${name}`, 20, y);
+
+  y += 10;
+  doc.text(`Username: ${username}`, 20, y);
+
+  y += 10;
+  doc.text(`Bio: ${bio}`, 20, y);
+
+  y += 10;
+  doc.text(`Location: ${location}`, 20, y);
+
+  y += 10;
+  doc.text(`Company: ${company}`, 20, y);
+
+  y += 10;
+  doc.text(`Public Repositories: ${repos}`, 20, y);
+
+  y += 10;
+  doc.text(`Followers: ${followers}`, 20, y);
+
+  y += 10;
+  doc.text(`Following: ${following}`, 20, y);
+
+  // 4️⃣ Optionally list latest repos (if you rendered them in DOM)
+  y += 20;
+  doc.setFontSize(14);
+  doc.text("Latest Repositories:", 20, y);
+
+  const repoItems = document.querySelectorAll("#deepAnalysisRepoList .repo-item");
+  if (repoItems.length === 0) {
+    y += 10;
+    doc.setFontSize(12);
+    doc.text("No repositories found.", 20, y);
+  } else {
+    repoItems.forEach((item) => {
+      const repoName = item.querySelector(".repo-name")?.textContent.trim() || "Unnamed Repo";
+      const repoDesc = item.querySelector(".repo-description")?.textContent.trim() || "No description";
+      y += 10;
+      if (y > 280) {  // new page if needed
+        doc.addPage();
+        y = 20;
+      }
+      doc.setFontSize(12);
+      doc.text(`• ${repoName}`, 20, y);
+      y += 7;
+      doc.text(`  ${repoDesc}`, 25, y);
+    });
+  }
+
+  // 5️⃣ Save the PDF
+  doc.save(`${username}_profile.pdf`);
+}
+
+
