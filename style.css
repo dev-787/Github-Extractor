@@ -539,16 +539,10 @@ body::after {
 }
 
 .profile-stats {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 15px;
   margin-top: 20px;
-  width: 100%;
-}
-
-.profile-stats > * {
-  flex: 1;
-  min-width: 0;
-  text-align: center;
 }
 
 .stat-card {
@@ -787,13 +781,14 @@ body::after {
     width: 80px;
     height: 80px;
   }
-  #repositories-label {
-    font-size: 0; /* Hide original text */
+  .profile-stats {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
   }
-  
-  #repositories-label::after {
-    content: "Repos";
-    font-size: 0.8rem; /* Restore font size */
+  .profile-stats > *:nth-child(3) {
+    grid-column: 1 / -1; /* Span full width */
+    justify-self: center; /* Center horizontally */
+    width: calc((100% - 10px) / 2);
   }
   .repo-header {
     flex-direction: column;
