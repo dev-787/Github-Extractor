@@ -27,7 +27,7 @@ const userInp = document.querySelector("#usernameInput");
 const searchBtn = document.querySelector("#searchBtn");
 
 searchBtn.addEventListener("click", function () {
-  const username = userInp.value.trim();
+  const username = userInp.value.trim().toLowerCase();
 
   if (username.length === 0) {
     alert("Please enter a GitHub username.");
